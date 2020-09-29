@@ -8,13 +8,15 @@ module.exports = override(
     style: true
   }),
   addLessLoader({
-    javascriptEnabled: true,
-    modifyVars: {
-      hack: `true;@import "${require.resolve(
-        "antd/lib/style/color/colorPalette.less"
-      )}";`,
-      ...darkThemeVars,
-      "@primary-color": "#02b875"
+    lessOptions: {
+      javascriptEnabled: true,
+      modifyVars: {
+        hack: `true;@import "${require.resolve(
+          "antd/lib/style/color/colorPalette.less"
+        )}";`,
+        ...darkThemeVars,
+        "@primary-color": "#02b875"
+      }
     }
   })
 );
